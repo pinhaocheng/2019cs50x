@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <table class="table" id="sheet_table">
+            <thead>
+                <tr>
+                    <th scope="col">Stock(s)</th>
+                    <th scope="col">Shares owned</th>
+                    <th scope="col">Current price</th>
+                    <th scope="col">Total Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.total_shares }}</td>
+                        <td>{{ quotes[stock.symbol]["price"] | usd }}</td>
+                        <td>{{ total_val[stock.symbol] | usd}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Cash Available</td>
+                    <td>{{ cash | usd }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Grand Total (stocks' total value + cash)</td>
+                    <td>{{ grand_total | usd }}</td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <!-- TODO -->
+        <input name="name" placeholder="Name" type="text"><br>
+
+        <select name="year">
+            <option disabled selected value="">Year</option>
+            <option value="Freshman">Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
+            <option value="Others">Others</option>
+        </select>
+        <br>
+            Select one of the following:<br>
+          <input type="radio" name="accomodation" id="on-campus" value="On-campus"> On-campus<br>
+          <input type="radio" name="accomodation" id="off-campus" value="Off-campus"> Off-campus<br>
+
+
+
+        <br>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input').value) {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.querySelector('select').value) {
+                alert('You must select your year!');
+                return false;
+            }
+            else if ((!document.getElementById('on-campus').checked) & (!document.getElementById('off-campus').checked)) {
+                alert('You must select your accomodation type!');
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+
+{% endblock %}

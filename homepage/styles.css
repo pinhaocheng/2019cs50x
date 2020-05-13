@@ -1,0 +1,23 @@
+body
+{
+    text-align: center;
+}
+
+header
+{
+    font-size: large;
+    font-style: italic
+}
+
+main
+{
+    font-size: medium;
+}
+
+footer
+{
+    font-size: small;
+    font-weight: bold;
+    color: red;
+}
+
